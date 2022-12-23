@@ -1,8 +1,6 @@
-name: publish
-
+name: testing
 on:
   push:
-
 jobs:
   build:
     runs-on: self-hosted
