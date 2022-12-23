@@ -1,0 +1,13 @@
+name: publish
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: get-version
+        id: version
+        run: echo "STEP 1"
+      - uses: actions/checkout@v2
