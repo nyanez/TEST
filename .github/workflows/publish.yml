@@ -8,4 +8,5 @@ jobs:
       - name: get-version
         id: version
         run: echo "STEP 1"
+        run: Start-Process "www.outlier.cl"
       - uses: actions/checkout@v2
