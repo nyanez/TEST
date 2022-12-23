@@ -36,4 +36,4 @@ jobs:
           echo test, and deploy your project.
 
       - name: navigate to outlier
-        run: Start-Process www.outlier.cl
+        run: Start-Process https://www.youtube.com/watch?v=mCdA4bJAGGk
