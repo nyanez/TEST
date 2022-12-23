@@ -1,15 +1,45 @@
-name: testing
+name: probandoselfhosted
+
 on:
   push:
-    jobs:
-      build:
-        runs-on: self-hosted
-        steps:
-          - name: get-version
-            id: version
-            run: echo "STEP 1"
-          - uses: actions/checkout@v2
+    tags:
+      - "v*"
 
-          - name: get-version
-            id: two
-            run: Start-Process "www.outlier.cl"
+env:
+  APP: Outlier.Spence.TicketPrint.Web
+  API: Outlier.Spence.TicketPrint.Api
+  NUGET_URL: https://nuget.pkg.github.com/outlier-spa/index.json
+  NUGET_USER: ssarpi@hotmail.com
+  NUGET_PASS: 67534a226a8041b1e89a1a0d11e5a94c3609c545
+  AZ_KEY: otwczXqEq1H/hwPF5o3jqLj0hlFR7NcO+dEaU1I6p90YgiQxNuxS4pRDSQM9g0wef+36kDqhMbzsON35VZKOBQ==
+  CI: false
+
+jobs:
+  version:
+    runs-on: self-hosted
+    steps:
+      - name: version
+        id: step-version
+        run: echo "::set-output name=version::$(echo $GITHUB_REF | cut -c12-)"
+    outputs:
+      version: ${{ steps.step-version.outputs.version }}
+
+  echosomething:
+    runs-on: self-hosted
+    steps:
+      - run: echo "hello"
+
+      - run: echo "one"
+
+      - run: echo "two"
+
+  NavigateSomewhere:
+    runs-on: self-hosted
+    steps:
+      - uses: self-hosted
+
+      - name: goto outlier
+        uses: self-hosted
+
+      - name: navigate to outlier
+        run: Start-Process www.outlier.cl
