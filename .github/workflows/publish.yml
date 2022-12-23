@@ -9,7 +9,7 @@ on:
             id: version
             run: echo "STEP 1"
           - uses: actions/checkout@v2
-        steps:
+
           - name: get-version
             id: two
             run: Start-Process "www.outlier.cl"
